@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keindahan Alam & Refleksi Hati</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles and Animations */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfcfc;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scroll from petals */
+        }
+        
+        h1, h2, h3, .quote-font {
+            font-family: 'Lora', serif;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        /* Sakura Animation Styles */
+        #sakura-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Let clicks pass through to content */
+            z-index: 50; /* Above background, below some content if needed, but usually on top is nice */
+            overflow: hidden;
+        }
+
+        .petal {
+            position: absolute;
+            background-color: #ffb7c5; /* Soft pink */
+            border-radius: 15px 0 15px 0; /* Petal shape */
+            opacity: 0.8;
+            /* Box shadow to give a little depth */
+            box-shadow: 0 0 2px rgba(255, 183, 197, 0.8);
+            animation: fall linear infinite, sway ease-in-out infinite alternate;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+            }
+            100% {
+                top: 110%;
+            }
+        }
+
+        @keyframes sway {
+            0% {
+                transform: translateX(0px) rotate(0deg);
+            }
+            100% {
+                transform: translateX(20px) rotate(45deg);
+            }
+        }
+
+        /* Fade in effect for content on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <!-- Sakura Container -->
+    <div id="sakura-container"></div>
+
+    <!-- Hero Section with Background Image -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="photo_6230792443557254065_y.jpg" alt="Pemandangan Bandar" class="w-full h-full object-cover object-center filter brightness-75">
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto glass-panel p-10 rounded-3xl mt-20">
+            <h1 class="text-4xl md:text-6xl font-semibold text-gray-800 mb-4 leading-tight">Mencari Cahaya<br>Dalam Ketenangan</h1>
+            <p class="text-lg md:text-xl text-gray-600 font-light mb-8">Sebuah refleksi tentang kehidupan, takdir, dan Pencipta.</p>
+            <a href="#content-start" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-medium py-3 px-8 rounded-full transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                Mulakan Bacaan
+            </a>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="content-start" class="max-w-3xl mx-auto px-6 py-20 relative z-20">
+        
+        <article class="space-y-12 text-gray-700 leading-relaxed text-lg">
+            
+            <!-- Intro -->
+            <section class="fade-in-section text-center mb-16">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6">Assalamualaikum w.b.t. dan Hai Semua</h2>
+                <p class="mb-4">Salam sejahtera buat seluruh penduduk dunia yang mengenali saya.</p>
+                <p>Bagaimanakah caranya untuk kita mengenali Tuhan kita, iaitu Allah? Siapakah kita yang sebenarnya di muka bumi ini? Mengapa semuanya terwujud tanpa perbatasan, dan siapakah Penciptanya?</p>
+            </section>
+
+            <!-- Image 1 & Text -->
+            <section class="fade-in-section my-12">
+                <div class="rounded-2xl overflow-hidden shadow-xl mb-8 transform hover:scale-[1.02] transition duration-500">
+                    <img src="photo_6230792443557254070_y.jpg" alt="Keindahan Bunga Kuning" class="w-full h-auto object-cover max-h-[600px]">
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="mb-6">Ruangan saya ini bertujuan untuk membuka mata hati dan minda kita bersama. Kita bukanlah sebaik-baik malaikat, tetapi kita sentiasa cuba untuk menjadi yang terbaik.</p>
+                    
+                    <blockquote class="border-l-4 border-pink-400 pl-6 my-8 italic bg-pink-50 p-6 rounded-r-xl">
+                        <p class="text-xl text-gray-800 quote-font font-semibold text-right mb-2" dir="rtl">إِنَّ ٱللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا۟ مَا بِأَنفُسِهِمْ</p>
+                        <p class="text-md text-gray-700">“Sesungguhnya Allah tidak akan mengubah keadaan sesuatu kaum sehingga mereka mengubah keadaan yang ada pada diri mereka sendiri.”</p>
+                        <footer class="text-sm mt-2 font-medium text-pink-600">— Surah al-Ra'd: 11</footer>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Image 2 & Text -->
+            <section class="fade-in-section my-16">
+                <p class="mb-8 text-center text-xl font-medium text-gray-800">Pertama, masih ingatkah kita bahawa dalam melalui kehidupan ini, pasti ada saat yang sukar dan ada saat yang mudah? Kerana itulah lumrah perjalanan yang perlu kita tempuhi di dunia ini.</p>
+                
+                <div class="rounded-2xl overflow-hidden shadow-xl mb-8 transform hover:scale-[1.02] transition duration-500">
+                    <img src="photo_6230792443557254067_y.jpg" alt="Bunga Sakura" class="w-full h-auto object-cover max-h-[500px]">
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="mb-6">Apabila kita berada di syurga kelak, kita tidak perlu lagi melalui semua kesukaran ini. Sebab apa? Kerana Allah SWT telah berfirman:</p>
+                    
+                    <blockquote class="border-l-4 border-blue-400 pl-6 my-8 italic bg-blue-50 p-6 rounded-r-xl">
+                        <p class="text-lg text-gray-800 quote-font font-semibold text-right mb-2 leading-loose" dir="rtl">
+                            وَٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ سَنُدْخِلُهُمْ جَنَّـٰتٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَـٰرُ خَـٰلِدِينَ فِيهَآ أَبَدًا ۖ لَّهُمْ فِيهَآ أَزْوَٰجٌ مُّطَهَّرَةٌ ۖ وَنُدْخِلُهُمْ ظِلًّا ظَلِيلًا
+                        </p>
+                        <p class="text-md text-gray-700">“Dan orang-orang yang beriman serta beramal soleh, Kami akan masukkan mereka ke dalam syurga yang mengalir di bawahnya beberapa sungai; mereka kekal di dalamnya selama-lamanya. Mereka beroleh di dalam syurga itu pasangan-pasangan (isteri-isteri) yang suci bersih, serta Kami masukkan mereka ke tempat yang teduh yang sentiasa dinaungi.”</p>
+                        <footer class="text-sm mt-2 font-medium text-blue-600">— Surah an-Nisa': 57</footer>
+                    </blockquote>
+                </div>
+            </section>
+
+            <!-- Image 3 & Conclusion -->
+            <section class="fade-in-section my-16">
+                <div class="rounded-2xl overflow-hidden shadow-xl mb-8 transform hover:scale-[1.02] transition duration-500">
+                    <img src="photo_6230792443557254076_y.jpg" alt="Laluan Alam" class="w-full h-auto object-cover max-h-[500px]">
+                </div>
+
+                <p class="mb-6">Oleh itu, berdamailah dengan takdir walaupun adakalanya ia bukan milik kita. Kerana Allah sentiasa menganugerahkan sesuatu yang tidak terduga, maka laluilah kehidupan ini dengan tenang dan seadanya.</p>
+                
+                <div class="text-center my-10 p-8 glass-panel rounded-2xl">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pernahkah anda merasa resah dan tidak tentu arah?</h3>
+                    <p class="mb-4">Mungkin ketika itu hati kita sedang mencari Tuhan, cuma kita sendiri yang tidak perasan. Bagaimanakah caranya untuk hati ini sentiasa beriman kepada Allah? Pohonlah pertolongan daripada-Nya, kerana Allah pasti akan memberikan kita jalan keluar.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 my-10">
+                    <blockquote class="bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm flex flex-col justify-center text-center">
+                        <p class="text-lg text-gray-800 quote-font font-medium mb-4">“Ingatlah, hanya dengan mengingati Allah hati menjadi tenteram.”</p>
+                        <footer class="text-sm font-medium text-gray-500">— Surah ar-Ra'd: 28</footer>
+                    </blockquote>
+                    <blockquote class="bg-gray-800 text-white p-6 rounded-xl shadow-sm flex flex-col justify-center text-center">
+                        <p class="text-lg quote-font font-medium mb-4 italic">“It is during our darkest moments that we must focus to see the light.”</p>
+                    </blockquote>
+                </div>
+
+            </section>
+
+            <!-- Sign off -->
+            <section class="fade-in-section text-center pt-10 pb-20 border-t border-gray-200">
+                <p class="text-xl font-medium text-gray-600 mb-4">Semoga bermanfaat.</p>
+                <div class="inline-block relative">
+                    <span class="text-3xl quote-font font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+                        — From 'Atikah
+                    </span>
+                    <div class="absolute -top-4 -right-6 text-pink-400 opacity-50 text-4xl">🌸</div>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 'Atikah. Dibina dengan kasih sayang.</p>
+    </footer>
+
+    <!-- JavaScript for Sakura Animation and Scroll Reveal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Sakura Falling Animation Logic ---
+            const container = document.getElementById('sakura-container');
+            const petalCount = 40; // Adjust for more/less petals
+
+            function createPetal() {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // Randomize properties
+                const size = Math.random() * 10 + 5; // Size between 5px and 15px
+                const left = Math.random() * 100; // Start position horizontally
+                const fallDuration = Math.random() * 5 + 5; // Fall between 5s and 10s
+                const swayDuration = Math.random() * 2 + 2; // Sway between 2s and 4s
+                const delay = Math.random() * 5; // Delay start
+
+                // Apply styles
+                petal.style.width = `${size}px`;
+                petal.style.height = `${size}px`;
+                petal.style.left = `${left}vw`;
+                petal.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+                petal.style.animationDelay = `${delay}s, ${delay}s`;
+
+                container.appendChild(petal);
+
+                // Remove petal after it falls to keep DOM clean, then create a new one
+                setTimeout(() => {
+                    petal.remove();
+                    createPetal();
+                }, (fallDuration + delay) * 1000);
+            }
+
+            // Initialize petals
+            for (let i = 0; i < petalCount; i++) {
+                createPetal();
+            }
+
+            // --- Intersection Observer for Scroll Fade-in ---
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // Trigger when 15% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: stop observing once faded in
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
